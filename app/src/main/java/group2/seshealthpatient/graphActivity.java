@@ -1,4 +1,4 @@
-package com.patient_doctor.heartbeat_analysis;
+package group2.seshealthpatient;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,10 +16,13 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import group2.seshealthpatient.HeartbeatMainActivity;
+import group2.seshealthpatient.R;
+
 public class graphActivity extends AppCompatActivity {
 
     public void btnReturnClick(View view){
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this,HeartbeatMainActivity.class);
         startActivity(intent);
     }
 

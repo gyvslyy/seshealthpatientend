@@ -1,4 +1,4 @@
-package com.patient_doctor.heartbeat_analysis;
+package group2.seshealthpatient;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,16 +19,18 @@ import android.widget.Toast;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class MainActivity extends AppCompatActivity {
+import group2.seshealthpatient.R;
+
+public class HeartbeatMainActivity extends AppCompatActivity {
     RingView mringview;
 
     public void btnRetryClick(View view){
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this,HeartbeatMainActivity.class);
         startActivity(intent);
     }
 
     public void btnGraphClick(View view){
-        Intent intent=new Intent(this,graphActivity.class);
+        Intent intent=new Intent(this, graphActivity.class);
         startActivity(intent);
     }
 
