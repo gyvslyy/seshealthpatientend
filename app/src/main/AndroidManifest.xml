@@ -21,6 +21,7 @@
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ViewData" />
+        <activity android:name=".HeartbeatMainActivity" />
         <activity android:name=".Activities.ViewUploadActivity"></activity>
     </application>
 
