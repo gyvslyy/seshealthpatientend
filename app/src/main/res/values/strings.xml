@@ -21,4 +21,13 @@
 
     <string name="age">age: </string>
     <string name="name">Name: </string>
+
+    <string name="selected_file">A file is selected: %1$s</string>
+
+    <array name="Gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer not to say</item>
+    </array>
+    <string name="title_activity_view_upload">ViewUploadActivity</string>
 </resources>
