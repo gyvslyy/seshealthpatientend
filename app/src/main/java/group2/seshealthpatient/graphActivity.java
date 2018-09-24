@@ -16,13 +16,13 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-import group2.seshealthpatient.HeartbeatMainActivity;
+import group2.seshealthpatient.HeartbeatActivity;
 import group2.seshealthpatient.R;
 
 public class graphActivity extends AppCompatActivity {
 
     public void btnReturnClick(View view){
-        Intent intent=new Intent(this,HeartbeatMainActivity.class);
+        Intent intent=new Intent(this,HeartbeatActivity.class);
         startActivity(intent);
     }
 

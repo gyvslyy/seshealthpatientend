@@ -6,9 +6,9 @@ import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -19,18 +19,16 @@ import android.widget.Toast;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import group2.seshealthpatient.R;
-
-public class HeartbeatMainActivity extends AppCompatActivity {
+public class HeartbeatActivity extends AppCompatActivity {
     RingView mringview;
 
     public void btnRetryClick(View view){
-        Intent intent=new Intent(this,HeartbeatMainActivity.class);
+        Intent intent=new Intent(this,HeartbeatActivity.class);
         startActivity(intent);
     }
 
     public void btnGraphClick(View view){
-        Intent intent=new Intent(this, graphActivity.class);
+        Intent intent=new Intent(this,graphActivity.class);
         startActivity(intent);
     }
 
@@ -117,7 +115,7 @@ public class HeartbeatMainActivity extends AppCompatActivity {
         }
         wakeLock.acquire();
         camera = Camera.open();
-        Toast.makeText(getApplicationContext(),"START MEASURING...",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"START MEASURING...", Toast.LENGTH_LONG).show();
         startTime=System.currentTimeMillis();
     }
 

@@ -8,7 +8,7 @@ import android.view.View;
 public class DetailActivity extends AppCompatActivity {
 
     public void btnMeasureClick(View view){
-        Intent intent=new Intent(this,HeartbeatMainActivity.class);
+        Intent intent=new Intent(this,HeartbeatActivity.class);
         startActivity(intent);
     }
 

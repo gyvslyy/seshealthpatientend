@@ -21,8 +21,14 @@
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ViewData" />
-        <activity android:name=".HeartbeatMainActivity" />
+        <activity android:name=".HeartbeatActivity" />
         <activity android:name=".Activities.ViewUploadActivity"></activity>
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
 
 </manifest>

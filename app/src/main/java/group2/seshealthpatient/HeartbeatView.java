@@ -49,7 +49,7 @@ public class HeartbeatView extends View {
         if (canvas == null) throw new NullPointerException();
 
         Bitmap bitmap = null;
-        if (HeartbeatMainActivity.getCurrent() == HeartbeatMainActivity.TYPE.GREEN) bitmap = greenBitmap;
+        if (HeartbeatActivity.getCurrent() == HeartbeatActivity.TYPE.GREEN) bitmap = greenBitmap;
         else bitmap = redBitmap;
 
         int bitmapX = bitmap.getWidth() / 2;

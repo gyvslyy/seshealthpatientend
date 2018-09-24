@@ -47,7 +47,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="#INSTRUCTIONS#"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/whiteColor"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
 
@@ -58,7 +58,7 @@
                 android:layout_marginRight="10dp"
                 android:text="@string/instruct"
                 android:textSize="23sp"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:textColor="@color/whiteColor"/>
 
             <TextView
                 android:layout_width="match_parent"
