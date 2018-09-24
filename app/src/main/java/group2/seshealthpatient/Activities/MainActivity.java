@@ -3,6 +3,7 @@ package group2.seshealthpatient.Activities;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,6 +25,7 @@ import group2.seshealthpatient.Fragments.MapFragment;
 import group2.seshealthpatient.Fragments.PatientInformationFragment;
 import group2.seshealthpatient.Fragments.RecordVideoFragment;
 import group2.seshealthpatient.Fragments.SendFileFragment;
+import group2.seshealthpatient.HeartbeatMainActivity;
 import group2.seshealthpatient.R;
 
 
@@ -134,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.nav_heartrate:
                                 if (currentState != MenuStates.HEARTRATE) {
                                     ChangeFragment(new HeartRateFragment());
+                                    startActivity(new Intent(getApplicationContext(), HeartbeatMainActivity.class));
                                     currentState = MenuStates.HEARTRATE;
                                 }
                                 break;
