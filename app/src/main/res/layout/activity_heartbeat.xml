@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="110dp"
             android:layout_height="28dp"
-            android:text="heartbeat"
+            android:text="Heart Rate"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
         android:layout_height="340dp"
         android:background="@color/colorPrimaryDark">
 
-        <com.patient_doctor.heartbeat_analysis.RingView
+        <group2.seshealthpatient.RingView
             android:id="@+id/ringview"
             android:layout_width="280dp"
             android:layout_height="280dp"
