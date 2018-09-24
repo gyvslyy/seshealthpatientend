@@ -1,4 +1,5 @@
 <resources>
+    <string name="google_maps_API_key">AIzaSyAh0QVBsV-Q7zKg7CH1tSpthQacn-GoPsY</string>
     <string name="app_name">SESHealthPatient</string>
     <string name="username_txt">Username</string>
     <string name="email_example_com">email@example.com</string>
@@ -31,3 +32,4 @@
     </array>
     <string name="title_activity_view_upload">ViewUploadActivity</string>
 </resources>
+
