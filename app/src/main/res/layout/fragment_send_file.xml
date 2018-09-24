@@ -5,9 +5,104 @@
     tools:context="group2.seshealthpatient.Fragments.SendFileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Upload your files"
+                android:textSize="40dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/ChoosePDFBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Choose PDF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/ChooseDocBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Choose doc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/ChooseImageBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Choose Picture" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/ChooseVideoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Choose Video" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:text="No file is selected!"
+                android:textSize="20dp"
+                android:id="@+id/FileNameTextView"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="45dp"
+                android:text="ViewUpload"
+                android:id="@+id/ViewUploadBtn"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:text="Upload"
+            android:id="@+id/UploadBtn"
+            />
+    </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
