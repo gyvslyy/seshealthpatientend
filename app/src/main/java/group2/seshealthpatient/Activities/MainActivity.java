@@ -30,6 +30,7 @@ import group2.seshealthpatient.Fragments.MapFragment;
 import group2.seshealthpatient.Fragments.PatientInformationFragment;
 import group2.seshealthpatient.Fragments.RecordVideoFragment;
 import group2.seshealthpatient.Fragments.SendFileFragment;
+import group2.seshealthpatient.HeartbeatMainActivity;
 import group2.seshealthpatient.R;
 
 
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.nav_heartrate:
                                 if (currentState != MenuStates.HEARTRATE) {
                                     ChangeFragment(new HeartRateFragment());
+                                    startActivity(new Intent(getApplicationContext(), HeartbeatMainActivity.class));
                                     currentState = MenuStates.HEARTRATE;
                                 }
                                 break;

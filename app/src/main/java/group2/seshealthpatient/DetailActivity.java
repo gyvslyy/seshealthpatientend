@@ -1,9 +1,11 @@
-package com.patient_doctor.heartbeat_analysis;
+package group2.seshealthpatient;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import group2.seshealthpatient.Activities.MainActivity;
 
 public class DetailActivity extends AppCompatActivity {
 

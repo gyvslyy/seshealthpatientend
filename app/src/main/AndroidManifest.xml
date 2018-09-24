@@ -34,6 +34,7 @@
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ViewData" />
         <activity android:name=".Activities.MapActivity" />
+        <activity android:name=".HeartbeatMainActivity" />
         <activity android:name=".Activities.ViewUploadActivity"></activity>
     </application>
 

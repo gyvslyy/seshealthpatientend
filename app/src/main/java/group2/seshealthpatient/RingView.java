@@ -1,4 +1,4 @@
-package com.patient_doctor.heartbeat_analysis;
+package group2.seshealthpatient;
 
 import android.content.Context;
 import android.graphics.Canvas;

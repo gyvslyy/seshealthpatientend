@@ -1,4 +1,4 @@
-package com.patient_doctor.heartbeat_analysis;
+package group2.seshealthpatient;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,6 +15,8 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+
+import group2.seshealthpatient.Activities.MainActivity;
 
 public class graphActivity extends AppCompatActivity {
 

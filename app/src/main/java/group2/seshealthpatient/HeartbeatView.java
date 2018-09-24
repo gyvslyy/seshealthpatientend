@@ -1,4 +1,4 @@
-package com.patient_doctor.heartbeat_analysis;
+package group2.seshealthpatient;;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,6 +8,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import group2.seshealthpatient.Activities.MainActivity;
 
 public class HeartbeatView extends View {
 
@@ -49,7 +51,7 @@ public class HeartbeatView extends View {
         if (canvas == null) throw new NullPointerException();
 
         Bitmap bitmap = null;
-        if (MainActivity.getCurrent() == MainActivity.TYPE.GREEN) bitmap = greenBitmap;
+        if (HeartbeatMainActivity.getCurrent() == HeartbeatMainActivity.TYPE.GREEN) bitmap = greenBitmap;
         else bitmap = redBitmap;
 
         int bitmapX = bitmap.getWidth() / 2;
