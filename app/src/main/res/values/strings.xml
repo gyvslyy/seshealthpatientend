@@ -21,7 +21,16 @@
 
     <string name="age">age: </string>
     <string name="name">Name: </string>
-
+    
+     <string name="default_text">000</string>
+    <string name="unit">bpm</string>
+    <string name="instruct">Gently place the tip of your finger on the camera to completely covers the lens.
+It is not necessary to cover the flash. Hold your phone steady.</string>
+    <string name="ideal_range">☺︎Ideal Resting Heartbeat Range</string>
+    <string name="ideal_range_num">60 to 100 bpm</string>
+    <string name="warning">Following ways can affect the accuracy of measurements</string>
+    <string name="warning1">▹▹Pressing too hard on the lens</string>
+    <string name="warning2">▹▹In poor lighting conditions</string>
     <string name="selected_file">A file is selected: %1$s</string>
 
     <array name="Gender">
