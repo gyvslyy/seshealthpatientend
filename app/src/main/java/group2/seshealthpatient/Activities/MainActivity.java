@@ -1,8 +1,10 @@
 package group2.seshealthpatient.Activities;
 
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,10 +15,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 
-
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import group2.seshealthpatient.Fragments.DataPacketFragment;
 import group2.seshealthpatient.Fragments.HeartRateFragment;
@@ -80,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
      * The current fragment being displayed.
      */
     private MenuStates currentState;
+
+    private static final int ERROR_DIALOG_REQUEST = 9001;
 
 
     @Override
@@ -152,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.nav_map:
                                 if (currentState != MenuStates.NAVIGATION_MAP) {
                                     ChangeFragment(new MapFragment());
+                                    startActivity(new Intent(getApplicationContext(), MapActivity.class));
                                     currentState = MenuStates.NAVIGATION_MAP;
                                 }
                                 break;
@@ -228,5 +237,29 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public boolean isServicesOK(){
+        Log.d(TAG, "isServicesOK: checking google services version");
+
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
+
+        if(available == ConnectionResult.SUCCESS){
+            //everything is OK and user can make map requests
+            Log.d(TAG, "isServiceOK: Google Play Services is working");
+            return true;
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+            //an error occurred but we can resolve it example: user has versioning issue that can be fixed
+            Log.d(TAG, "isServicesOK: an error occurred but we can fix it" );
+            //can get dialog straight from google for this particular request
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }
+        else{
+            //there is an error and we cannot resolve it
+            Toast.makeText(this, "We can't make map requests", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }
