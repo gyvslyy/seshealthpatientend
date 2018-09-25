@@ -72,13 +72,9 @@ public class DataPacketFragment extends Fragment {
     TextView ChoosedFileTv;
 
 
-
-
-
     public DataPacketFragment() {
         // Required empty public constructor
-
-
+        
     }
 
 
