@@ -7,7 +7,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,9 +56,13 @@ public class DataPacketFragment extends Fragment {
     private FirebaseUser user;
     private String Filename = "";
 
+    private int MAX_LENGTH = 200; // MAX NUMBER = 200
+    private int Rest_Length = MAX_LENGTH;
+    private EditText mEdt_view;
+    private TextView mTv_num;
 
 
-    @BindView(R.id.DPEditField)
+    @BindView(R.id.edt)
     EditText DPEditField;
     @BindView(R.id.DPTitle)
     EditText DPTitle;
@@ -184,6 +191,32 @@ public class DataPacketFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Now that the view has been created, we can use butter knife functionality
+        mEdt_view = view.findViewById(R.id.edt);
+        mTv_num = view.findViewById(R.id.edt_tv_num);
+        mEdt_view.setFilters(new InputFilter[]{new InputFilter.LengthFilter(200)});
+        setListener();
+    }
+    private void setListener() {
+        mEdt_view.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // TODO Auto-generated method stub
+                if (Rest_Length > 0) {
+                    Rest_Length = MAX_LENGTH - mEdt_view.getText().length();
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                mTv_num.setText(Rest_Length + "/200");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mTv_num.setText(Rest_Length + "/200");
+            }
+        });
     }
 
 }
