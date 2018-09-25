@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".HeartbeatMainActivity">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="28dp">
@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="110dp"
             android:layout_height="28dp"
-            android:text="@string/name"
+            android:text="@string/heartbeat"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -32,9 +32,9 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="340dp"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/whiteColor">
 
-        <com.patient_doctor.heartbeat_analysis.RingView
+        <group2.seshealthpatient.RingView
             android:id="@+id/ringview"
             android:layout_width="280dp"
             android:layout_height="280dp"
@@ -65,11 +65,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <com.patient_doctor.heartbeat_analysis.HeartbeatView
+                    <group2.seshealthpatient.HeartbeatView
                         android:id="@+id/image"
                         android:layout_width="match_parent"
-                        android:layout_height="75dp">
-                    </com.patient_doctor.heartbeat_analysis.HeartbeatView>
+                        android:layout_height="75dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,54 +86,41 @@
         android:layout_width="1dp"
         android:layout_height="1dp" />
 
-        <Button
-            android:id="@+id/action_retry"
-            android:onClick="btnRetryClick"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:background="@drawable/bkgd_corner"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="21sp"
-            android:text="try again"/>
+    <Button
+        android:id="@+id/action_retry"
+        android:onClick="btnRetryClick"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bkgd_corner"
+        android:textColor="@color/whiteColor"
+        android:textSize="21sp"
+        android:text="try again"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
-        <Button
-           android:id="@+id/action_save"
-           android:onClick="btnSaveClick"
-           android:layout_width="280dp"
-           android:layout_height="50dp"
-           android:background="@drawable/bkgd_corner"
-           android:textColor="@color/colorPrimaryDark"
-           android:textSize="21sp"
-           android:text="save"/>
+    <Button
+        android:id="@+id/action_save"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bkgd_corner"
+        android:textColor="@color/whiteColor"
+        android:textSize="21sp"
+        android:text="save"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
-        <Button
-           android:id="@+id/btnGraph"
-           android:onClick="btnGraphClick"
-           android:layout_width="280dp"
-           android:layout_height="50dp"
-           android:background="@drawable/bkgd_corner"
-           android:textColor="@color/colorPrimaryDark"
-           android:textSize="21sp"
-           android:text="view graph"/>
-
-
-
-        <TextView
-           android:id="@+id/tvsuccess"
-           android:layout_width="fill_parent"
-           android:layout_height="27sp"
-           android:text="       GOT IT!  SAVE SUCCESSFULLY!!!"
-           android:textColor="@color/colorPrimary"
-           android:textSize="21sp"
-           android:textStyle="italic"
-           />
+    <Button
+        android:id="@+id/btnGraph"
+        android:onClick="btnGraphClick"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bkgd_corner"
+        android:textColor="@color/whiteColor"
+        android:textSize="21sp"
+        android:text="view graph"/>
 
 </LinearLayout>

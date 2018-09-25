@@ -7,6 +7,7 @@ import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,24 +18,38 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import group2.seshealthpatient.Activities.MainActivity;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class HeartbeatMainActivity extends AppCompatActivity {
     RingView mringview;
 
     public void btnRetryClick(View view){
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this,HeartbeatMainActivity.class);
         startActivity(intent);
     }
 
     public void btnGraphClick(View view){
-        Intent intent=new Intent(this,graphActivity.class);
+        Intent intent=new Intent(this,GraphActivity.class);
         startActivity(intent);
     }
 
-    private static final String TAG = "HeartRate";
+    private Button saveBtn;
+
+    //add Firebase Database stuff
+    //private FirebaseDatabase mFirebaseDatabase;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference myRef;
+
+    private static final String TAG = "HeartbeatMainActivity";
     private static final AtomicBoolean processing = new AtomicBoolean(false);
 
     private static SurfaceView preview = null;
@@ -64,11 +79,10 @@ public class HeartbeatMainActivity extends AppCompatActivity {
 
     private static int averageIndex=0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_heartbeatmain);
 
         preview=(SurfaceView)findViewById(R.id.preview);
         previewHolder=preview.getHolder();
@@ -76,31 +90,57 @@ public class HeartbeatMainActivity extends AppCompatActivity {
         previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         image=findViewById(R.id.image);
-        text=(TextView)findViewById(R.id.text);
+        text=(TextView)findViewById(R.id.text);//DB
 
         PowerManager pm=(PowerManager)getSystemService(Context.POWER_SERVICE);
         wakeLock=pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
 
-     //   Button retryBtn=(Button)findViewById(R.id.action_retry);
-     //   retryBtn.setOnClickListener(new View.OnClickListener(){
-     //      @Override
+        saveBtn=(Button)findViewById(R.id.action_save); //DB
+        //declare the database reference object. This is what we use to access the database.
+        //NOTE: Unless you are signed in, this will not be useable.
+        mAuth = FirebaseAuth.getInstance();
+        myRef = FirebaseDatabase.getInstance().getReference();
 
-     //      public void onClick(View view){
-     //          text.setText(R.string.default_text);
-     //          startCam();
-     //          mringview.startAnim();
-     //       }
-     //    });
-
-        Button saveBtn=(Button)findViewById(R.id.action_save);
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    //toastMessage("Successfully signed in with: " + user.getEmail());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                    toastMessage("Successfully signed out.");
+                }
+                // ...
+            }
+        };
 
         saveBtn.setOnClickListener(new View.OnClickListener(){
-              @Override
-              public void onClick(View view){
+            @Override
+            public void onClick(View view){
+                Log.d(TAG, "onClick: Attempting to add object to database.");
+                String newHeartbeat = text.getText().toString();
+                if(!newHeartbeat.equals("")){
+                    Calendar calendar = Calendar.getInstance();
+                    Date time = calendar.getTime();
+                    //String newTime = time.toString();
 
+                    String str = "yyyy-MM-dd hh:mm:ss";
+                    SimpleDateFormat format = new SimpleDateFormat(str);
+                    String newTime = format.format(time);
 
-               }
-            });
+                    FirebaseUser user = mAuth.getCurrentUser(); //add sth in database unless login
+                    String userID = user.getUid(); //get user UID in firebase
+                    myRef.child("Users").child(userID).child("Heartbeat").child(newTime).setValue(newHeartbeat);
+                    toastMessage("Adding " + newHeartbeat + " to database...");
+                    //reset the text
+                    text.setText("000");
+                }
+            }
+        });
     }
 
     @Override
@@ -215,7 +255,7 @@ public class HeartbeatMainActivity extends AppCompatActivity {
             // Transitioned from one state to another to the same
             if (newType != currentType) {
                 currentType = newType;
-                image.postInvalidate();
+                //image.postInvalidate();
             }
 
             long endTime = System.currentTimeMillis();
@@ -248,8 +288,11 @@ public class HeartbeatMainActivity extends AppCompatActivity {
                     }
                 }
                 int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-                //heartrate
+                //heartrate.................
+
                 text.setText(String.valueOf(beatsAvg));
+
+
                 // Log.v(TAG, "beatsAvg="+beatsAvg);
                 startTime = System.currentTimeMillis();
                 beats = 0;
@@ -315,4 +358,27 @@ public class HeartbeatMainActivity extends AppCompatActivity {
         return result;
     }
 
+    //Save to Database!!!
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
     }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    //add a toast to show when successfully signed in
+    /**
+     * customizable toast
+     * @param message
+     */
+    private void toastMessage(String message){
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    }
+}

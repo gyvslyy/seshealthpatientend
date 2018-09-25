@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
+import group2.seshealthpatient.DetailActivity;
 import group2.seshealthpatient.Fragments.DataPacketFragment;
 import group2.seshealthpatient.Fragments.HeartRateFragment;
 import group2.seshealthpatient.Fragments.MapFragment;
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.nav_heartrate:
                                 if (currentState != MenuStates.HEARTRATE) {
                                     ChangeFragment(new HeartRateFragment());
-                                    startActivity(new Intent(getApplicationContext(), HeartbeatMainActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), DetailActivity.class));
                                     currentState = MenuStates.HEARTRATE;
                                 }
                                 break;

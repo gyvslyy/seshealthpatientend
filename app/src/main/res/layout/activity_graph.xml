@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="110dp"
             android:layout_height="28dp"
-            android:text="@string/name"
+            android:text="@string/heartbeat"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
 
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
-        android:layout_height="400sp"
+        android:layout_height="435sp"
         android:id="@+id/chart"/>
 
         <TextView
@@ -52,23 +52,13 @@
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:background="@drawable/bkgd_corner"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/whiteColor"
             android:textSize="21sp"
             android:text="Return"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="10dp" />
-
-        <Button
-            android:id="@+id/btn5"
-
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:background="@drawable/bkgd_corner"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="21sp"
-            android:text="Exit"/>
     </LinearLayout>
 
 </LinearLayout>

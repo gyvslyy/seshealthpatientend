@@ -30,12 +30,12 @@ public class RingView extends View {
         setLayerType(View.LAYER_TYPE_SOFTWARE,null);
         mRingPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
         if(!isInEditMode()){
-            mRingPaint.setColor(mContext.getResources().getColor(R.color.colorAccent));
+            mRingPaint.setColor(mContext.getResources().getColor(R.color.lightgrey));
         }
         mRingPaint.setStrokeWidth(mHeartPaintWidth);
         mRingPaint.setStyle(Paint.Style.STROKE);
         mRingAnimPaint=new Paint(mRingPaint);
-        mRingAnimPaint.setColor(mContext.getResources().getColor(R.color.colorPrimary));
+        mRingAnimPaint.setColor(mContext.getResources().getColor(R.color.lightpink));
 
         startAnim();
     }

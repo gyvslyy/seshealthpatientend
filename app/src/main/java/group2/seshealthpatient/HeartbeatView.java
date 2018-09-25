@@ -1,4 +1,4 @@
-package group2.seshealthpatient;;
+package group2.seshealthpatient;
 
 import android.content.Context;
 import android.graphics.Bitmap;

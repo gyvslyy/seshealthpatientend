@@ -24,7 +24,8 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:labelFor="@+id/usernameET"
-        android:text="@string/username_txt" />
+        android:text="@string/username_txt"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@id/usernameET"
@@ -46,7 +47,8 @@
         android:layout_below="@id/usernameTV"
         android:layout_marginTop="20dp"
         android:labelFor="@+id/passwordET"
-        android:text="@string/password_txt" />
+        android:text="@string/password_txt"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@id/passwordET"
@@ -62,8 +64,9 @@
     <Button
         android:id="@+id/login_btn"
         style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:textSize="21sp"
         android:layout_below="@id/passwordTV"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
@@ -71,8 +74,9 @@
 
     <Button
         android:id="@+id/Register_Btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:textSize="21sp"
         android:layout_below="@+id/login_btn"
         android:layout_centerHorizontal="true"
         android:text="REGISTER" />

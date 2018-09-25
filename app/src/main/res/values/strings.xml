@@ -22,6 +22,8 @@
 
     <string name="age">age: </string>
     <string name="name">Name: </string>
+
+    <string name="heartbeat">Heart Rate</string>
     <string name="default_text">000</string>
     <string name="unit">bpm</string>
     <string name="instruct">Gently place the tip of your finger on the camera to completely covers the lens.
