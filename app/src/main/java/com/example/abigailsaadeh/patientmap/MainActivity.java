@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
 
