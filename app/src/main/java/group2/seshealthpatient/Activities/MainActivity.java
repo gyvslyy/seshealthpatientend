@@ -115,6 +115,12 @@ public class MainActivity extends AppCompatActivity {
         // Setup the navigation drawer, most of this code was taken from:
         // https://developer.android.com/training/implementing-navigation/nav-drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        if (!getIntent().getExtras().getBoolean("ispatient")) {
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.doctor_drawer);
+        }
+
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override

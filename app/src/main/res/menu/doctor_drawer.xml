@@ -23,6 +23,6 @@
 
         <item
             android:id="@+id/placeholder"
-            android:title="THIS IS A PATIEN ACCOUNT" />
+            android:title="THIS IS A DOCTOR ACCOUNT" />
     </group>
 </menu>
